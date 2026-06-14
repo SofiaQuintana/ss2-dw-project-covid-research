@@ -63,7 +63,10 @@ nav:
     - Catálogo de Fuentes: fase1/catalogo_fuentes.md
     - Diccionario de Datos: fase1/diccionario_datos.md
     - Pipelines de Ingesta:
+      - Creación de Esquema: fase1/pipeline_schema_creation.md
       - OMS (Google Drive): fase1/pipeline_oms_gdrive.md
+      - MSPAS (Dropbox): fase1/pipeline_dropbox_mspas.md
+      - INE (S3): fase1/pipeline_s3_ine.md
       - Archivos Locales (DBFS): fase1/pipeline_local_dbfs.md
     - Plan de Anonimización: fase1/anonimizacion.md
     - Linaje de Datos: fase1/lineage.md

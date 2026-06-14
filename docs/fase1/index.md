@@ -19,11 +19,12 @@ materia prima para auditoría y reproceso.
 
 Cada fuente produce **una tabla independiente**, sin relaciones entre ellas:
 
-| Origen | Formato | Tabla Bronze |
-|--------|---------|-------------|
-| OMS Portal | CSV (Google Drive) | `sandbox_bronze_ss2.who_guatemala` |
-| OMS Portal | CSV (Google Drive) | `sandbox_bronze_ss2.who_costa_rica` |
-| Archivo local | CSV (DBFS/Volume) | `sandbox_bronze_ss2.local_<sufijo>` |
+| Origen | Formato | Script | Tabla Bronze |
+|--------|---------|--------|-------------|
+| OMS Portal | CSV (Google Drive) | `ingesta_oms_databricks.py` | `sandbox_bronze_ss2.who_<pais>` |
+| MSPAS | CSV (Dropbox) | `dropbox-mspas-ingestion-script.ipynb` | `sandbox_bronze_ss2.dbx_<carpeta>` |
+| INE Defunciones | XLSX multi-hoja (S3) | `s3-ine-ingestion-script.ipynb` | `sandbox_bronze_ss2.ine_defunciones_*` |
+| Archivo local | CSV (DBFS/Volume) | `ingesta_local_databricks.py` | `sandbox_bronze_ss2.local_<sufijo>` |
 
 !!! info "Regla Bronze"
     Las tablas de esta capa contienen los datos **exactamente como vienen de la fuente**.
