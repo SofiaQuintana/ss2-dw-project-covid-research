@@ -2,9 +2,9 @@ site_name: Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026
 site_description: Documentación técnica del proyecto End-to-End de análisis de mortalidad Pre/Post-COVID en Guatemala y Centroamérica.
 site_author: Grupo 10 - Seminario de Sistemas 2 - Vac Junio 2026
 
-# GitHub repo (aparece como botón en la esquina superior derecha del sitio)
-repo_name: ss2-dw-project-covid-research          # <-- reemplazar con usuario/repo real
-repo_url: https://github.com/SofiaQuintana/ss2-dw-project-covid-research  # <-- reemplazar
+# GitHub repo
+repo_name: ss2-dw-project-covid-research
+repo_url: https://github.com/SofiaQuintana/ss2-dw-project-covid-research
 
 theme:
   name: material
@@ -32,11 +32,11 @@ theme:
     
   language: es
   features:
-    - navigation.tabs         # pestañas superiores por fase
-    - navigation.sections     # secciones colapsables en sidebar
-    - navigation.top          # botón "volver arriba"
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
     - search.highlight
-    - content.code.copy       # botón de copiar en bloques de código
+    - content.code.copy
 
 plugins:
   - search
