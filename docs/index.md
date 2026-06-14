@@ -6,6 +6,21 @@ Catedrático: Ing. Marlon Orellana | Sección A | Escuela de Vacaciones 2026
 
 ---
 
+## Links del proyecto
+
+| Recurso | Enlace |
+|---------|--------|
+| Repositorio GitHub | [ss2-dw-project-covid-research](https://github.com/SofiaQuintana/ss2-dw-project-covid-research) |
+| Databricks Workspace | [dbc-0a04799e-61f4.cloud.databricks.com](https://dbc-0a04799e-61f4.cloud.databricks.com/?o=7474654378976213) |
+| S3 — Datos INE | `s3://ss2-ingestion-ine-datasets-raw/` |
+| Google Drive — Datos OMS | [Carpeta Drive OMS](https://drive.google.com/drive/folders/1hWLtuZhnQJQ-8iRRL-acupDgLt0mhIQ-?usp=sharing) |
+| Dropbox — Datos MSPAS | [/MSPAS en Dropbox](https://www.dropbox.com/home/MSPAS) |
+| Diagrama de arquitectura (Draw.io en Drive) | [Ver en Drive](https://drive.google.com/file/d/1lyRLrrGM1ripTk24UDRu3TEEHOWBAU5L/view) |
+| Diagrama de arquitectura (Draw.io directo) | [Abrir en diagrams.net](https://app.diagrams.net/#G1lyRLrrGM1ripTk24UDRu3TEEHOWBAU5L#%7B%22pageId%22%3A%22nYbiyOzKeAziMmEJtLo7%22%7D) |
+| Documentación publicada | [sofiaquintana.github.io/ss2-dw-project-covid-research](https://sofiaquintana.github.io/ss2-dw-project-covid-research/) |
+
+---
+
 ## Contexto del proyecto
 
 Este proyecto diseña y construye una plataforma de datos End-to-End para analizar cómo cambiaron los
