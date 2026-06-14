@@ -27,28 +27,20 @@ Este proyecto diseña y construye una plataforma de datos End-to-End para analiz
 patrones de mortalidad en Guatemala entre el período **Pre-COVID (2015–2019)** y el
 período **Post-COVID (2020 en adelante)**.
 
-## Arquitectura general
+## Especificación de Arquitectura de Datos: Lakehouse Híbrido (Medallion Architecture)
 
-```
-Fuentes heterogéneas
-  (OMS · INE · MSPAS · Fuentes regionales)
-          │
-          ▼
-    [ Sandbox / Bronze ]   ← Fase 1
-          │
-          ▼
-       [ Stage ]           ← Fase 2
-          │
-          ▼
-  [ Fact-Dimensiones ]     ← Fase 2
-          │
-          ▼
-   DW Nube + DW Local      ← Fase 2
-          │
-          ▼
-    ML + BI (Power BI      ← Fase 3
-           + Tableau)
-```
+Se detalla la arquitectura técnica, el stack de tecnologías y el flujo de datos de extremo a extremo para la ingesta, transformación, almacenamiento y consumo de datos utilizando una topología híbrida de tipo Medallion.
+
+![Diagrama de arquitectura](assets/arquitectura.png)
+
+| Componente | Tecnología Seleccionada | Rol en la Arquitectura |
+| :--- | :--- | :--- |
+| **Capa de Cómputo y ETL** | Databricks + AWS | Orquestación, extracción de fuentes, procesamiento/limpieza de datos mediante Python y carga en paralelo. |
+| **Lenguaje y Librerías** | Python 3.x (Pandas, boto3, PySpark) | Desarrollo de los pipelines de ingesta, consumo de APIs y conexiones correspondientes. |
+| **Capa de Almacenamiento (layer bronze y silver)** | AWS S3 | Soporte físico y lógico de la Arquitectura Medallón. Almacenamiento de tablas delta con soporte transaccional ACID. |
+| **Data Warehouse Principal (layer gold)** | AWS Redshift (Cloud) | Almacenamiento masivo optimizado para consultas analíticas corporativas y producción. |
+| **Data Warehouse Réplica** | PostgreSQL (On-Premises / Local) | Repositorio local interoperable que garantiza alta disponibilidad y consultas internas sin latencia de red. |
+| **Capa de Consumo y BI** | Power BI + Tableau | Creación de dashboards operativos y gerenciales conectados directamente a cualquiera de las instancias del data warehouse (cloud / on-premise). |
 
 ## Fases del proyecto
 
