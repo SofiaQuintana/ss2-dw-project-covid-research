@@ -1,0 +1,88 @@
+grupo_etario_label,grupo_etario_anios_min,grupo_etario_anios_max,fuente_formato
+<1 año,0,1,mspas
+1 a 4 años,1,4,mspas
+5 a 9 años,5,9,mspas
+10 a 14 años,10,14,mspas
+15 a 19 años,15,19,mspas
+20 a 24 años,20,24,mspas
+25 a 29 años,25,29,mspas
+30 a 34 años,30,34,mspas
+35 a 39 años,35,39,mspas
+40 a 44 años,40,44,mspas
+45 a 49 años,45,49,mspas
+50 a 54 años,50,54,mspas
+55 a 59 años,55,59,mspas
+60 a 64 años,60,64,mspas
+65 a 69 años,65,69,mspas
+70 a 74 años,70,74,mspas
+75 a 79 años,75,79,mspas
+80 a 84 años,80,84,mspas
+85 años y más,85,,mspas
+0 - 4 años,0,4,ine
+5 - 9 años,5,9,ine
+10 - 14 años,10,14,ine
+15 - 19 años,15,19,ine
+20 - 24 años,20,24,ine
+25 - 29 años,25,29,ine
+30 - 34 años,30,34,ine
+35 - 39 años,35,39,ine
+40 - 44 años,40,44,ine
+45 - 49 años,45,49,ine
+50 - 54 años,50,54,ine
+55 - 59 años,55,59,ine
+60 - 64 años,60,64,ine
+65 - 69 años,65,69,ine
+70 - 74 años,70,74,ine
+75 - 79 años,75,79,ine
+80 - 84 años,80,84,ine
+85 años y más,85,,ine
+75 años y más,75,,ine
+<1 mes,0,0.08,grupo_materno
+1m a <2m,0.08,0.17,grupo_materno
+2m a <1a,0.17,1,grupo_materno
+0 días,0,0.003,ine_neonatal
+1 día,0.003,0.005,ine_neonatal
+2 días,0.005,0.008,ine_neonatal
+3 días,0.008,0.011,ine_neonatal
+4 días,0.011,0.014,ine_neonatal
+5 días,0.014,0.016,ine_neonatal
+6 días,0.016,0.019,ine_neonatal
+7 días,0.019,0.022,ine_neonatal
+8 días,0.022,0.025,ine_neonatal
+9 días,0.025,0.027,ine_neonatal
+10 días,0.027,0.030,ine_neonatal
+11 días,0.030,0.033,ine_neonatal
+12 días,0.033,0.036,ine_neonatal
+13 días,0.036,0.038,ine_neonatal
+14 días,0.038,0.041,ine_neonatal
+15 días,0.041,0.044,ine_neonatal
+16 días,0.044,0.047,ine_neonatal
+17 días,0.047,0.049,ine_neonatal
+18 días,0.049,0.052,ine_neonatal
+19 días,0.052,0.055,ine_neonatal
+20 días,0.055,0.058,ine_neonatal
+21 días,0.058,0.060,ine_neonatal
+22 días,0.060,0.063,ine_neonatal
+23 días,0.063,0.066,ine_neonatal
+24 días,0.066,0.068,ine_neonatal
+25 días,0.068,0.071,ine_neonatal
+26 días,0.071,0.074,ine_neonatal
+27 días,0.074,0.077,ine_neonatal
+28 días,0.077,0.082,ine_neonatal
+1 mes,0.08,0.17,ine_postneonatal
+2 meses,0.17,0.25,ine_postneonatal
+3 meses,0.25,0.33,ine_postneonatal
+4 meses,0.33,0.42,ine_postneonatal
+5 meses,0.42,0.50,ine_postneonatal
+6 meses,0.50,0.58,ine_postneonatal
+7 meses,0.58,0.67,ine_postneonatal
+8 meses,0.67,0.75,ine_postneonatal
+9 meses,0.75,0.83,ine_postneonatal
+10 meses,0.83,0.92,ine_postneonatal
+11 meses,0.92,1.0,ine_postneonatal
+Todas las edades,,,especial
+Todas,,,especial
+Todos los grupos,,,especial
+Otras edades,,,especial
+Otros,,,especial
+No especificado,,,especial
