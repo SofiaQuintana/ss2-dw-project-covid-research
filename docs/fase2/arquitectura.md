@@ -34,6 +34,29 @@ gold_ss2 (Delta, Unity Catalog)                 ← Gold: star schema
     `localhost`). La orquestación completa corre en **Databricks
     Workflows** — no se usan GitHub/GitLab Actions para los jobs de datos.
 
+## Diagrama de Despliegue
+
+El diagrama anterior muestra el flujo lógico de datos por capas. El
+siguiente diagrama de despliegue muestra la **topología física**: qué
+corre dentro de la cuenta AWS del proyecto (cluster Spark de Databricks
+sobre EC2) y qué corre fuera de AWS, en la máquina local.
+
+![Diagrama de Despliegue](../assets/despliegue.png)
+
+Puntos clave:
+
+- El **cluster Spark de Databricks corre sobre instancias EC2** dentro de
+  la cuenta AWS del proyecto — no es infraestructura propia del equipo.
+- Databricks **no tiene visibilidad de `localhost`**, pero la máquina
+  local sí puede iniciar una conexión saliente hacia afuera. Por eso la
+  carga al DW local no exporta Gold a archivos intermedios: el script
+  `load_postgresql.py` lee las tablas `gold_ss2` directamente vía
+  **`databricks-sql-connector`** contra el **SQL Warehouse** de Databricks
+  (JDBC/ODBC), y luego inserta esos datos en PostgreSQL con `psycopg2`.
+- `demo-read-from-local-dw.ipynb` ejecuta la consulta analítica final
+  contra PostgreSQL local — la evidencia de lectura exigida por el
+  criterio de aceptación.
+
 ## Capas
 
 | Capa | Motor | Esquema Unity Catalog | Responsabilidad |
