@@ -25,14 +25,17 @@ gold_ss2 (Delta, Unity Catalog)                 ← Gold: star schema
                     + demo-read script          ← evidencia de lectura
 ```
 
-!!! info "Decisión de arquitectura"
-    Databricks/Unity Catalog actúa como el **DW en la nube** — no se
-    introduce un Redshift adicional, a diferencia de lo planteado
-    originalmente en Fase 1. El **DW local** es PostgreSQL corriendo en
-    Docker, cargado desde un script Python local (no JDBC desde
-    Databricks: Databricks corre en AWS y no tiene visibilidad de
-    `localhost`). La orquestación completa corre en **Databricks
-    Workflows** — no se usan GitHub/GitLab Actions para los jobs de datos.
+## Decisión de arquitectura
+
+![Diagrama de arquitectura](assets/arquitectura_updated.png)
+
+Databricks/Unity Catalog actúa como el **DW en la nube** — no se
+introduce un Redshift adicional, a diferencia de lo planteado
+originalmente en Fase 1. El **DW local** es PostgreSQL corriendo en
+Docker, cargado desde un script Python local (no JDBC desde
+Databricks: Databricks corre en AWS y no tiene visibilidad de
+`localhost`). La orquestación completa corre en **Databricks
+Workflows** — no se usan GitHub/GitLab Actions para los jobs de datos.
 
 ## Diagrama de Despliegue
 
