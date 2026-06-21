@@ -1,0 +1,5 @@
+databricks-sql-connector==3.7.0
+psycopg[binary]==3.2.3
+pyarrow==17.0.0
+pyyaml==6.0.2
+tenacity==9.0.0
