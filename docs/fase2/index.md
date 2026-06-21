@@ -10,6 +10,8 @@ del Gold en Databricks/Unity Catalog.
   schema de Gold (2 fact tables + 5 dimensiones compartidas), e
   infraestructura del DW local
 - [Reglas de Transformación](reglas_transformacion.md) — listado
-  auditable de las reglas aplicadas en Silver
+  auditable de las reglas aplicadas en Silver y Gold
+- [Source-to-Target Mapping](source_to_target_mapping.md) — mapeo
+  columna por columna Bronze → Silver → Gold (Excel/Google Sheets)
 - [Evidencia de lectura del DW local](evidencia_dw_local.md)
 - [Backup del DW](backup_dw.md)
