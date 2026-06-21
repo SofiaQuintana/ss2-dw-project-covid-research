@@ -27,7 +27,7 @@ gold_ss2 (Delta, Unity Catalog)                 ← Gold: star schema
 
 ## Decisión de arquitectura
 
-![Diagrama de arquitectura](assets/arquitectura_updated.png)
+![Diagrama de arquitectura](../assets/arquitectura_updated.png)
 
 Databricks/Unity Catalog actúa como el **DW en la nube** — no se
 introduce un Redshift adicional, a diferencia de lo planteado
