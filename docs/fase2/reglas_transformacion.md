@@ -1,13 +1,5 @@
 # Listado de Reglas de Transformación (Bronze → Silver)
 
-!!! success "Stage y Gold implementados"
-    Las reglas descritas aquí están verificadas contra el código real de los
-    4 notebooks de Silver en `transformation-scripts/stage/` y los 7
-    notebooks de Gold en `transformation-scripts/gold/` (no solo el diseño
-    del plan). Las pruebas de calidad correspondientes están en
-    `transformation-scripts/tests/` (`test_silver_*.ipynb` y
-    `test_gold_dw.ipynb`).
-
 ## Principio rector: marcar, no destruir
 
 La capa Silver corrige **forma, tipo y calidad estructural** de los datos
@@ -185,16 +177,3 @@ conocidos por fuente), pero **no se consume desde archivo** en ningún
 notebook: ni Silver ni `gold_dim_demografia.ipynb` lo leen directamente.
 Este último usa una copia hardcodeada equivalente (`_REF_GRUPOS`) más un
 parser regex de respaldo para etiquetas no catalogadas.
-
-## Próximos pasos
-
-- Migrar `gold_dim_geografia.ipynb` y `gold_dim_demografia.ipynb` a leer
-  `ref_departamentos_gt.csv` y `ref_grupos_etarios.csv` desde archivo en vez
-  de listas hardcodeadas equivalentes — mejora de auditabilidad, no
-  bloqueante.
-- Conectar `oms_indicator_mapping.csv` completo (incluye rango CIE-10
-  equivalente por indicador) si se necesita esa columna en `dim_causa`;
-  actualmente `stage_who.ipynb` solo usa el mapeo código→nombre en español.
-- Esta tabla es la base directa para completar las pestañas `INE_edad`,
-  `INE_geografia`, `MSPAS`, `WHO`, `Gold_Facts` y `Gold_Dims` del
-  `source-to-target-mapping.xlsx`.

@@ -2,8 +2,7 @@
 
 El **DW local** es una copia completa de la capa Gold (`gold_ss2`) en
 PostgreSQL, que sirve dos propósitos a la vez: es el **backup secundario**
-del DW (la hoja de calificación lo exige, 3 pts) y es la evidencia de que el
-Gold se puede **leer fuera de Databricks** (criterio de aceptación, 10 pts).
+del DW y es la evidencia de que el Gold se puede **leer fuera de Databricks**.
 Los scripts viven en [`dw-backup/`](https://github.com/SofiaQuintana/ss2-dw-project-covid-research/tree/main/dw-backup).
 
 ## Estrategia de carga: conexión directa, no Parquet intermedio

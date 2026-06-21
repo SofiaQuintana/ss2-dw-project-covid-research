@@ -30,5 +30,4 @@ que eliminan subtotales completos se marcan en naranja claro.
 
 [Reglas de Transformación](reglas_transformacion.md) documenta las mismas
 reglas en formato narrativo, agrupadas por capa (Silver/Gold) en vez de por
-columna — útil para entender el "por qué" de cada regla; el Excel es la
-referencia exhaustiva columna por columna que exige la hoja de calificación.
+columna — útil para entender el "por qué" de cada regla.
