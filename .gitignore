@@ -1,0 +1,4 @@
+local_test/warehouse/
+local_test/metastore_db/
+local_test/derby.log
+site/

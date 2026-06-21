@@ -73,6 +73,8 @@ nav:
 
   - Fase 2 — Transformación:
     - Resumen: fase2/index.md
+    - Arquitectura: fase2/arquitectura.md
+    - Reglas de Transformación: fase2/reglas_transformacion.md
 
   - Fase 3 — ML y BI:
     - Resumen: fase3/index.md
