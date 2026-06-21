@@ -122,25 +122,30 @@ esta decisión.
 ## Infraestructura del DW local
 
 Databricks corre en AWS y no puede conectarse directamente a un
-PostgreSQL en `localhost`. El flujo de carga es:
+PostgreSQL en `localhost`, pero la máquina local sí puede iniciar una
+conexión saliente hacia el SQL Warehouse de Databricks. Por eso la carga
+**no exporta Gold a Parquet como paso intermedio**: el flujo real es
 
 ```
-Gold Delta en Databricks
-    → notebook exporta tablas a Parquet en un Volume accesible
-    → script Python local (load_postgresql.py) lee esos Parquets
-    → psycopg2 / COPY → PostgreSQL Docker
+gold_ss2 en Databricks (SQL Warehouse)
+    → databricks-sql-connector (lectura directa por lotes Arrow)
+    → load-postgresql.py
+    → psycopg COPY, una transacción
+    → PostgreSQL Docker (schema gold_ss2)
 ```
 
-- `docker-compose.yml` + `initial-scripts/postgres-ddl.sql` levantan el
-  esquema estrella en PostgreSQL (`localhost:5432`, base `ss2_dw`).
-- `transformation-scripts/load/load_postgresql.py` ejecuta la carga vía
-  `COPY` desde los Parquets exportados.
-- `transformation-scripts/load/demo-read-from-local-dw.ipynb` ejecuta una
-  consulta analítica real contra el DW local como evidencia de lectura —
-  ver [Evidencia de lectura del DW local](evidencia_dw_local.md).
+- `dw-backup/postgres-ddl.sql` + `dw-backup/schema-and-role.sql` levantan
+  el galaxy schema completo en PostgreSQL (5 dimensiones + 2 fact tables,
+  con FK `DEFERRABLE` e índices sobre cada FK).
+- `dw-backup/load-postgresql.py` ejecuta la carga: trunca las 7 tablas,
+  copia con `COPY` por lotes, valida conteos origen vs. destino y solo
+  hace `COMMIT` si todo cuadra — si algo falla, `ROLLBACK` y el backup
+  anterior queda intacto.
+- `dw-backup/demo-read-from-local-dw.ipynb` ejecuta consultas analíticas
+  reales contra el DW local como evidencia de lectura.
 
-El backup del DW (capa primaria en Parquet + copia en PostgreSQL local)
-está documentado en [Backup del DW](backup_dw.md).
+El backup transaccional y la evidencia de lectura están documentados en
+detalle en [DW Local — Backup y Evidencia de Lectura](dw_local_evidencia_y_backup.md).
 
 ## Orquestación
 

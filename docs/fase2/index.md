@@ -13,5 +13,6 @@ del Gold en Databricks/Unity Catalog.
   auditable de las reglas aplicadas en Silver y Gold
 - [Source-to-Target Mapping](source_to_target_mapping.md) — mapeo
   columna por columna Bronze → Silver → Gold (Excel/Google Sheets)
-- [Evidencia de lectura del DW local](evidencia_dw_local.md)
-- [Backup del DW](backup_dw.md)
+- [DW Local — Backup y Evidencia de Lectura](dw_local_evidencia_y_backup.md) —
+  backup transaccional del Gold en PostgreSQL y la consulta de evidencia
+  contra el DW local

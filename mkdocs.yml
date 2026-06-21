@@ -45,11 +45,12 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - def_list
-  - admonition              
-  - pymdownx.details        
-  - pymdownx.superfences    
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - tables
   - toc:
       permalink: true       
@@ -75,6 +76,8 @@ nav:
     - Resumen: fase2/index.md
     - Arquitectura: fase2/arquitectura.md
     - Reglas de Transformación: fase2/reglas_transformacion.md
+    - Source-to-Target Mapping: fase2/source_to_target_mapping.md
+    - DW Local (Backup y Evidencia): fase2/dw_local_evidencia_y_backup.md
 
   - Fase 3 — ML y BI:
     - Resumen: fase3/index.md

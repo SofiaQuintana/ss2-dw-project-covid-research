@@ -9,12 +9,11 @@ archivo `source-to-target-mapping.xlsx`.
 
 ## Qué contiene
 
-El archivo tiene 7 pestañas. Las primeras 4 cubren Bronze → Silver por
+El archivo tiene 6 pestañas. Las primeras 4 cubren Bronze → Silver por
 fuente; las últimas 2 cubren Silver → Gold:
 
 | Pestaña | Cobertura |
 |---------|-----------|
-| `Léeme` | Portada con la guía de lectura: qué significa cada estado y cada color de fila |
 | `INE_edad` | 3 tablas Bronze → Silver (sexo y edad, neonatales, postneonatales) |
 | `INE_geografia` | 2 tablas Bronze → Silver (departamento de residencia, causas externas) |
 | `MSPAS` | 3 tablas Bronze → Silver (primeras causas, enfermedades crónicas, grupo materno-infantil) |
@@ -26,30 +25,6 @@ Cada fila documenta una transformación concreta: tabla y columna de
 origen, la regla aplicada en español (con ejemplos de valores reales,
 no solo el nombre de la función), y tabla y columna de destino. Las filas
 que eliminan subtotales completos se marcan en naranja claro.
-
-## Cómo se generó
-
-El archivo **no se edita a mano**: se genera con
-[`transformation-scripts/generate_stm.py`](https://github.com/SofiaQuintana/ss2-dw-project-covid-research/blob/main/transformation-scripts/generate_stm.py),
-un script Python que construye el `.xlsx` con `openpyxl` a partir de listas
-de reglas verificadas contra el código real de los notebooks.
-
-```bash
-cd transformation-scripts
-source ../../.venv/bin/activate
-python generate_stm.py   # escribe ../source-to-target-mapping.xlsx
-```
-
-!!! info "Por qué un script y no un Excel editado a mano"
-    Cada regla del archivo fue verificada leyendo línea por línea los 11
-    notebooks de `transformation-scripts/stage/` y `transformation-scripts/gold/`
-    — no se transcribió el diseño del plan de trabajo sin confirmarlo contra
-    el código. Generarlo con un script permite volver a ejecutarlo cada vez
-    que un notebook cambie, sin que el Excel y el código se desincronicen.
-
-El archivo `.xlsx` generado vive en la raíz del repositorio
-(`source-to-target-mapping.xlsx`) y la copia enlazada arriba en Google
-Sheets es la que se comparte para revisión y defensa.
 
 ## Referencia cruzada
 
