@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: dw_backup_pg
+    env_file: ./dw-backup/.env
+    ports:
+      - "${PG_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./dw-backup/initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    shm_size: 1gb
+    restart: unless-stopped
+
+  etl:
+    build: ./dw-backup/script
+    container_name: dw_backup_etl
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file: ./dw-backup/.env
+    volumes:
+      - ./dw-backup/script:/app
+      - ./dw-backup/initdb/postgres-ddl.sql:/app/postgres-ddl.sql:ro
+    profiles: ["tools"]   # no arranca con `up`; se invoca con `run etl`
+
+volumes:
+  pgdata:
