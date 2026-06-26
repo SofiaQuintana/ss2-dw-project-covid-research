@@ -8,6 +8,8 @@
 
 - [Arquitectura — Fase 3](arquitectura.md): expansión de la capa de
   consumo sobre el Gold ya estable de Fase 2.
+- [Análisis y Hallazgos](analisis.md): comparativa Pre/Post-COVID,
+  modelo de ML (Lasso en SageMaker) y recomendaciones de política pública.
 - Modelo de ML en Amazon SageMaker + Databricks
 - Visualizaciones en Power BI (Power Query + DAX)
 - Visualizaciones en segunda herramienta BI (Tableau)
