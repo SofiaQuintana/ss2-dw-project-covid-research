@@ -1,7 +1,8 @@
 # Fase 3 — Machine Learning, Visualización Analítica e Interoperabilidad BI
 
-!!! note "En construcción"
-    Esta sección se completará en la entrega de Fase 3 (26–30 Jun 2026).
+!!! info "Documentación disponible en Google Drive"
+    La documentación completa de la Fase 3 está disponible en:
+    **[Carpeta Fase 3 — Google Drive](https://drive.google.com/drive/u/3/folders/1DzDgBGiFRfbDw8EdrTQp932aCmgi2tBd)**
 
 ## Contenido previsto
 
