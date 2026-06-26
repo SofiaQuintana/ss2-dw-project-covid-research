@@ -1,0 +1,2177 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del proyecto End-to-End de análisis de mortalidad Pre/Post-COVID en Guatemala y Centroamérica.">
+      
+      
+        <meta name="author" content="Grupo 10 - Seminario de Sistemas 2 - Vac Junio 2026">
+      
+      
+      
+        <link rel="prev" href="../arquitectura/">
+      
+      
+        <link rel="next" href="../source_to_target_mapping/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Reglas de Transformación - Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#listado-de-reglas-de-transformacion-bronze-silver" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026" class="md-header__button md-logo" aria-label="Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reglas de Transformación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="purple"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="purple"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SofiaQuintana/ss2-dw-project-covid-research" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ss2-dw-project-covid-research
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase1/" class="md-tabs__link">
+          
+  
+  
+  Fase 1 — Ingesta
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Fase 2 — Transformación
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase3/" class="md-tabs__link">
+          
+  
+  
+  Fase 3 — ML y BI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026" class="md-nav__button md-logo" aria-label="Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SofiaQuintana/ss2-dw-project-covid-research" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ss2-dw-project-covid-research
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 1 — Ingesta
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 1 — Ingesta
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/catalogo_fuentes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catálogo de Fuentes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/diccionario_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diccionario de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines de Ingesta
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipelines de Ingesta
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/pipeline_schema_creation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de Esquema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/pipeline_oms_gdrive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OMS (Google Drive)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/pipeline_dropbox_mspas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MSPAS (Dropbox)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/pipeline_s3_ine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INE (S3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/pipeline_local_dbfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archivos Locales (DBFS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/anonimizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan de Anonimización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase1/lineage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linaje de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 2 — Transformación
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 2 — Transformación
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reglas de Transformación
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reglas de Transformación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#principio-rector-marcar-no-destruir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principio rector: marcar, no destruir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabla-de-reglas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla de reglas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tabla de reglas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ine-5-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INE (5 tablas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mspas-3-tablas-dbx_" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MSPAS (3 tablas dbx_*)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-2-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WHO (2 tablas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transversales-todas-las-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transversales (todas las fuentes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reglas-gold-silver-gold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas Gold (Silver → Gold)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalogos-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catálogos de referencia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trazabilidad-por-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trazabilidad por fuente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issues-conocidos-que-motivan-estas-reglas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues conocidos que motivan estas reglas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Issues conocidos que motivan estas reglas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-normalizacion-de-codigo-de-causa-entre-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Normalización de código de causa entre fuentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-subtotales-ine-doble-conteo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Subtotales INE — doble conteo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mspas-columnas-de-conteo-duplicadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. MSPAS — columnas de conteo duplicadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-doble-conteo-ine-edad-vs-ine-geografia-riesgo-real-en-gold-confirmado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Doble conteo INE-edad vs. INE-geografía (riesgo real en Gold — confirmado)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-grupos-etarios-heterogeneos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Grupos etarios heterogéneos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../source_to_target_mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source-to-Target Mapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dw_local_evidencia_y_backup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DW Local (Backup y Evidencia)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 3 — ML y BI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 3 — ML y BI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/analisis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Análisis y Hallazgos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/drive/u/3/folders/1DzDgBGiFRfbDw8EdrTQp932aCmgi2tBd" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentación Fase 3 (Drive)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#principio-rector-marcar-no-destruir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principio rector: marcar, no destruir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabla-de-reglas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla de reglas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tabla de reglas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ine-5-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INE (5 tablas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mspas-3-tablas-dbx_" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MSPAS (3 tablas dbx_*)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-2-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WHO (2 tablas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transversales-todas-las-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transversales (todas las fuentes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reglas-gold-silver-gold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas Gold (Silver → Gold)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalogos-de-referencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catálogos de referencia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trazabilidad-por-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trazabilidad por fuente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issues-conocidos-que-motivan-estas-reglas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues conocidos que motivan estas reglas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Issues conocidos que motivan estas reglas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-normalizacion-de-codigo-de-causa-entre-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Normalización de código de causa entre fuentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-subtotales-ine-doble-conteo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Subtotales INE — doble conteo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mspas-columnas-de-conteo-duplicadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. MSPAS — columnas de conteo duplicadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-doble-conteo-ine-edad-vs-ine-geografia-riesgo-real-en-gold-confirmado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Doble conteo INE-edad vs. INE-geografía (riesgo real en Gold — confirmado)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-grupos-etarios-heterogeneos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Grupos etarios heterogéneos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="listado-de-reglas-de-transformacion-bronze-silver">Listado de Reglas de Transformación (Bronze → Silver)<a class="headerlink" href="#listado-de-reglas-de-transformacion-bronze-silver" title="Permanent link">&para;</a></h1>
+<h2 id="principio-rector-marcar-no-destruir">Principio rector: marcar, no destruir<a class="headerlink" href="#principio-rector-marcar-no-destruir" title="Permanent link">&para;</a></h2>
+<p>La capa Silver corrige <strong>forma, tipo y calidad estructural</strong> de los datos
+provenientes de Bronze. La única excepción al principio "no destruir" son
+los <strong>subtotales pre-calculados de INE</strong>: se filtran directamente en Silver
+(no se marcan con una columna booleana) porque son estructuralmente inútiles
+para análisis granular y su presencia duplicaría conteos en cualquier
+agregación de Gold. Ninguna otra regla de negocio filtra filas en Silver.</p>
+<h2 id="tabla-de-reglas">Tabla de reglas<a class="headerlink" href="#tabla-de-reglas" title="Permanent link">&para;</a></h2>
+<h3 id="ine-5-tablas">INE (5 tablas)<a class="headerlink" href="#ine-5-tablas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>Aplica a</th>
+<th>Detalle</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cast <code>anio</code> → <code>INT</code></td>
+<td>INE (5 tablas)</td>
+<td>Tipado consistente entre tablas hermanas</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Cast <code>total/hombres/mujeres</code> → <code>INT</code></td>
+<td>INE (5 tablas)</td>
+<td>Tipos inconsistentes entre tablas hermanas de la misma fuente</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Filtrar subtotales INE-edad</td>
+<td>INE-edad (3 tablas)</td>
+<td>Se filtran filas donde <code>causa_de_muerte IN ('Todas las causas', 'Otras causas')</code> — no existe columna <code>es_subtotal</code>; Silver entrega solo datos granulares</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Filtrar subtotales INE-geo residencia</td>
+<td><code>ine_defunciones_depto_residencia</code></td>
+<td>Filtra <code>departamento_de_residencia = 'Todos los departamentos'</code> Y <code>codigo_cie_10 = 'Todas las causas'</code> (dos subtotales independientes)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Filtrar subtotales INE-geo causas externas</td>
+<td><code>ine_defunciones_causas_externas</code></td>
+<td>Filtra únicamente <code>departamento_de_ocurrencia = 'Todos los departamentos'</code> (esta tabla no tiene fila de subtotal por causa)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Validación de cuadratura</td>
+<td>INE (5 tablas)</td>
+<td><code>validate_cuadratura()</code> compara <code>total == hombres + mujeres</code> sobre una muestra de 5 000 filas y emite <strong>solo un <code>logger.warning</code></strong> si falla — no agrega columna a la tabla Silver ni filtra nada</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Normalizar código de causa (<code>cie_10_norm</code>)</td>
+<td>INE (5 tablas)</td>
+<td><code>normalize_cie10()</code>: quita <code>:</code> y espacios (<code>J:18:0</code>→<code>J180</code>); además resuelve dos casos especiales de texto: <code>'Todas las causas'</code>/<code>'Todas las causas externas'</code>→<code>'A00-Y98'</code>, <code>'Otras causas'</code>→<code>'R99'</code>. Columna original <code>codigo_cie_10</code> se conserva</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Descomponer campo combinado de causas externas</td>
+<td><code>ine_defunciones_causas_externas</code></td>
+<td>Bronze trae un solo campo <code>causas_externas_codigo_cie_10</code> con texto + rango, ej. <code>"Accidentes de transporte (V01-V99)"</code>. Silver lo separa en <code>causa_de_muerte</code> (texto antes del paréntesis) y <code>cie_10_norm</code> (rango dentro del paréntesis, vía <code>regexp_extract</code>); filas con esta columna <code>NULL</code> en Bronze se descartan porque no aportan causa</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Resolver <code>departamento_oficial</code></td>
+<td>INE-geografía (2 tablas)</td>
+<td><code>LEFT JOIN</code> sobre <code>UPPER(TRIM(col_depto))</code> contra un catálogo de variantes → nombre oficial con tilde/casing correcto; filas sin match quedan con <code>departamento_oficial = NULL</code>, no se descartan</td>
+<td>Implementada</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mspas-3-tablas-dbx_">MSPAS (3 tablas <code>dbx_*</code>)<a class="headerlink" href="#mspas-3-tablas-dbx_" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>Aplica a</th>
+<th>Detalle</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cast <code>anio</code> → <code>INT</code></td>
+<td>MSPAS (todas)</td>
+<td><code>anio</code> puede llegar como <code>DOUBLE</code> en <code>dbx_morbilidad_enfermedades_cronicas_2015_a_2025</code></td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>casos_total = COALESCE(casos, cantidad)</code></td>
+<td>MSPAS (las 3 tablas <code>dbx_*</code>)</td>
+<td><code>casos</code> y <code>cantidad</code> tienen nulls cruzados; en <code>enfermedades_cronicas</code> (que solo trae <code>casos</code>) se agrega <code>cantidad=NULL</code> vía <code>ensure_column</code> antes del <code>COALESCE</code>, dando el mismo resultado (<code>casos_total = casos</code>). Columnas originales <code>casos</code>/<code>cantidad</code> se eliminan tras calcular <code>casos_total</code></td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Normalizar código de causa (<code>cie_10_norm</code>)</td>
+<td>MSPAS (3 tablas)</td>
+<td><code>normalize_cie10()</code>: quita <code>:</code> y espacios (<code>J:18:0</code>→<code>J180</code>). Columna original <code>cie_10</code> se conserva</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Resolver <code>departamento_oficial</code></td>
+<td>MSPAS (3 tablas)</td>
+<td><code>LEFT JOIN</code> sobre <code>UPPER(TRIM(col_depto))</code> contra un catálogo de variantes → nombre oficial con tilde/casing correcto; filas sin match quedan con <code>departamento_oficial = NULL</code>, no se descartan</td>
+<td>Implementada</td>
+</tr>
+</tbody>
+</table>
+<h3 id="who-2-tablas">WHO (2 tablas)<a class="headerlink" href="#who-2-tablas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>Aplica a</th>
+<th>Detalle</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cast <code>anio</code> → <code>INT</code></td>
+<td>WHO (2 tablas)</td>
+<td>WHO la recibe como <code>year</code> y se renombra</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Renombrar y normalizar columnas WHO</td>
+<td>WHO (2 tablas)</td>
+<td><code>indicator_code</code>→<code>codigo_causa</code>, <code>indicator_name</code>→<code>nombre_causa</code>, <code>number</code>→<code>defunciones</code> (cast <code>BIGINT</code>), <code>year</code>→<code>anio</code>, <code>country</code>→<code>pais</code>; tres columnas de tasa con nombres largos en inglés → <code>pct_causa_total_muertes</code>, <code>tasa_estandarizada_x100k</code>, <code>tasa_mortalidad_x100k</code>. Se eliminan <code>age_group</code> (formato <code>[25-29]</code> redundante) y la columna de linaje específica de cada origen (<code>volume_path</code> en Guatemala, <code>gdrive_file_id</code> en Costa Rica)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Normalizar <code>sexo</code></td>
+<td>WHO (2 tablas)</td>
+<td><code>'Female'</code>→<code>'F'</code>, <code>'Male'</code>→<code>'M'</code>, <code>'All'</code>→<code>'Ambos'</code>; cualquier otro valor se conserva sin cambio</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Normalizar <code>grupo_etario</code></td>
+<td>WHO (2 tablas)</td>
+<td>Desde <code>age_group_code</code>: casos especiales <code>'Age_all'</code>→<code>'Todas'</code>, <code>'Age_unknown'</code>→<code>'Desconocido'</code>, <code>'Age85_over'</code>→<code>'85+'</code>, <code>'Age00'</code>→<code>'0'</code>; patrón general <code>'Age25_29'</code>→<code>'25-29'</code> (quita prefijo <code>Age</code>, <code>_</code>→<code>-</code>)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Traducir <code>nombre_causa</code> al español</td>
+<td>WHO (2 tablas)</td>
+<td>LEFT JOIN contra catálogo inline <code>_OMS_INDICATOR_ROWS</code> (código OMS → nombre en español, ~190 filas con todos los indicadores observados incluyendo <code>CG0395</code>→<code>'COVID-19'</code>); si el código no matchea, se conserva el nombre en inglés original vía <code>COALESCE</code></td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Preservar <code>NULL</code> en tasas WHO</td>
+<td>WHO (2 tablas)</td>
+<td>No se imputa <code>0</code> en <code>pct_causa_total_muertes</code>, <code>tasa_estandarizada_x100k</code>, <code>tasa_mortalidad_x100k</code> — confirmado en test: <code>tasa_estandarizada_x100k</code> es NULL salvo en filas <code>grupo_etario='Todas'</code>, comportamiento heredado de la fuente, no introducido por la transformación</td>
+<td>Implementada</td>
+</tr>
+</tbody>
+</table>
+<h3 id="transversales-todas-las-fuentes">Transversales (todas las fuentes)<a class="headerlink" href="#transversales-todas-las-fuentes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>Aplica a</th>
+<th>Detalle</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dropDuplicates()</code></td>
+<td>Todas (9 tablas Silver)</td>
+<td>Reintentos de ingesta en Bronze pueden generar filas exactamente repetidas</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Idempotencia Silver</td>
+<td>Todas</td>
+<td>Todos los notebooks Silver escriben con <code>mode("overwrite")</code> + <code>overwriteSchema=true</code> — re-ejecuciones del Job no duplican datos</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>silver_processed_timestamp</code></td>
+<td>Todas</td>
+<td>Columna de auditoría: timestamp de ejecución del notebook Silver (<code>current_timestamp()</code>)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>silver_job_run_id</code></td>
+<td>Todas</td>
+<td>Columna de auditoría: run id de Databricks Workflows, o <code>"manual"</code> si se ejecuta fuera de un job</td>
+<td>Implementada</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reglas-gold-silver-gold">Reglas Gold (Silver → Gold)<a class="headerlink" href="#reglas-gold-silver-gold" title="Permanent link">&para;</a></h2>
+<p>La capa Gold (<code>gold_ss2</code>) construye el galaxy schema (5 dimensiones + 2
+fact tables) a partir de las tablas Silver. Todos los notebooks de Gold
+están implementados en <code>transformation-scripts/gold/</code> y verificados por
+<code>transformation-scripts/tests/test_gold_dw.ipynb</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Regla</th>
+<th>Aplica a</th>
+<th>Detalle</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generación sintética de <code>dim_tiempo</code></td>
+<td><code>gold_dim_tiempo.ipynb</code></td>
+<td>No lee Silver — genera filas para <code>anio</code> 2012–2025 directamente en código; <code>periodo_covid</code> = <code>'pre_covid'</code> si <code>anio &lt;= 2019</code>, <code>'covid_y_post'</code> si <code>anio &gt;= 2020</code></td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>UNION DISTINCT de 3 niveles geográficos</td>
+<td><code>gold_dim_geografia.ipynb</code></td>
+<td>Nivel <code>pais</code>: de <code>who_guatemala</code>/<code>who_costa_rica</code> (<code>pais</code> normalizado con <code>initcap</code>+reemplazo de <code>_</code>) + fila placeholder <code>('Guatemala', 'Sin desagregar', NULL, 'pais')</code> para INE-edad. Nivel <code>departamento</code>: UNION de <code>departamento_oficial</code> desde las 2 tablas INE-geo + las 3 <code>dbx_*</code>, excluyendo <code>NULL</code> y la variante <code>'Todos los departamentos'</code>. Nivel <code>municipio</code>: UNION de <code>(departamento_oficial, municipio)</code> solo desde las 3 tablas MSPAS, descartando filas con <code>departamento</code>/<code>municipio</code> <code>NULL</code></td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>causa_sk</code> por <code>codigo_origen</code> unificado</td>
+<td><code>gold_dim_causa.ipynb</code></td>
+<td>UNION DISTINCT de <code>(codigo_origen, descripcion)</code> desde las 10 tablas Silver: INE-edad/geo-residencia/causas-externas y MSPAS usan <strong><code>cie_10_norm</code></strong> como <code>codigo_origen</code> (no la columna combinada <code>causas_externas_codigo_cie_10</code> planteada en el diseño inicial — Silver ya la normaliza a <code>cie_10_norm</code> para las 3 fuentes INE); WHO usa <code>codigo_causa</code>. Se descartan filas con <code>codigo_origen</code> NULL antes de asignar <code>causa_sk</code></td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Catálogo de grupos etarios inline + parsing regex</td>
+<td><code>gold_dim_demografia.ipynb</code></td>
+<td>El mapeo <code>(grupo_etario_label) → (min, max)</code> está hardcodeado en el notebook (<code>_REF_GRUPOS</code>, ~80 filas), equivalente en contenido a <code>ref_grupos_etarios.csv</code>. Para etiquetas que no matchean el catálogo (ej. WHO <code>'25-29'</code>, <code>'85+'</code>) aplica un parser regex de respaldo: patrón <code>^[0-9]+-[0-9]+$</code> extrae min/max por split; patrón <code>^[0-9]+[+]$</code> extrae solo min</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Fila placeholder demografía</td>
+<td><code>gold_dim_demografia.ipynb</code></td>
+<td><code>(sexo='Ambos', grupo_etario_label='Sin desagregar', min=NULL, max=NULL)</code> se construye explícitamente para INE-geografía (sin columna de edad)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>dim_fuente</code> con <code>pipeline_name</code>/<code>nivel_agregacion</code> manual</td>
+<td><code>gold_dim_fuente.ipynb</code></td>
+<td>Tabla de mapeo hardcodeada de 10 tablas Silver → <code>pipeline_name</code> (<code>stage_ine_edad</code>, <code>stage_ine_geografia</code>, <code>stage_mspas</code>, <code>stage_who</code>) y <code>nivel_agregacion</code> (<code>nacional_edad</code>, <code>departamental</code>, <code>municipal</code>, <code>nacional</code>); UNION DISTINCT de <code>(source_system, source_file)</code> reales por tabla</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>fact_defunciones</code>: INE-edad → placeholders fijos</td>
+<td><code>gold_fact_defunciones.ipynb</code></td>
+<td>Las 3 tablas INE-edad (<code>sexo_edad</code>, <code>neonatales</code>, <code>postneonatales</code>) joinean <code>causa_sk</code> por <code>cie_10_norm</code>, <code>demografia_sk</code> por <code>(sexo='Ambos', grupo_etario_label=edad)</code>, y usan el <code>geografia_sk</code> del placeholder <code>'Guatemala'/'Sin desagregar'</code> resuelto una sola vez al inicio del notebook (no por fila)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>fact_defunciones</code>: INE-geografía (residencia + causas externas)</td>
+<td><code>gold_fact_defunciones.ipynb</code></td>
+<td><code>geografia_sk</code> por <code>departamento_oficial</code> (join contra <code>dim_geografia</code> filtrado a <code>nivel_geo='departamento'</code>); <code>causa_sk</code> por <code>cie_10_norm</code>; <code>demografia_sk</code> fijo al placeholder <code>'Ambos'/'Sin desagregar'</code> (sin columna de edad en estas tablas)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>fact_defunciones</code>: WHO</td>
+<td><code>gold_fact_defunciones.ipynb</code></td>
+<td><code>pais</code> se renormaliza (<code>initcap</code> + <code>_</code>→espacio) antes del join contra <code>dim_geografia</code> filtrado a <code>nivel_geo='pais'</code>; <code>causa_sk</code> por <code>codigo_causa</code>; <code>demografia_sk</code> por <code>(sexo, grupo_etario)</code> exacto; <code>defunciones_hombres</code>/<code>defunciones_mujeres</code> quedan <code>NULL</code> (WHO no las reporta); <code>tasa_mortalidad_x100k</code>/<code>tasa_estandarizada_x100k</code> se preservan tal cual vienen de Silver (incluyendo NULLs)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>fact_morbilidad</code>: geografía a nivel municipio</td>
+<td><code>gold_fact_morbilidad.ipynb</code></td>
+<td>Join contra <code>dim_geografia</code> filtrado a <code>nivel_geo='municipio'</code> por <code>(departamento_oficial, municipio)</code> exacto — a diferencia de <code>fact_defunciones</code>, que para MSPAS usaría nivel departamento; aquí se preserva el grano más fino disponible en la fuente</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>fact_morbilidad</code>: filas sin <code>sexo</code> → placeholder demografía</td>
+<td><code>gold_fact_morbilidad.ipynb</code></td>
+<td>Spark no matchea <code>NULL == NULL</code> en un join, así que las filas con <code>sexo</code> NULL en Silver se remapean explícitamente a <code>(sexo='Ambos', grupo_etario_label='Sin desagregar')</code> antes de unir con <code>dim_demografia</code>, para evitar <code>demografia_sk</code> NULL en la fact</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Helpers de join reutilizables</td>
+<td><code>gold_fact_defunciones.ipynb</code></td>
+<td>El notebook centraliza los joins repetidos (<code>join_tiempo</code>, <code>join_causa_cie10</code>, <code>join_causa_codigo</code>, <code>join_fuente</code>, <code>join_demografia_sexo_grupo</code>, <code>join_geo_depto</code>) para evitar duplicar la misma lógica de unión en las 4 fuentes (INE-edad, INE-geo-residencia, INE-causas-externas, WHO)</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td><code>causa_sk</code>/<code>demografia_sk</code>/<code>geografia_sk</code>/<code>fuente_sk</code>/<code>tiempo_sk</code> como surrogate keys</td>
+<td>Todas las dimensiones</td>
+<td><code>row_number()</code> sobre <code>Window.orderBy(...)</code> de las columnas naturales de cada dimensión — determinístico entre ejecuciones siempre que el conjunto de valores distintos no cambie</td>
+<td>Implementada</td>
+</tr>
+<tr>
+<td>Idempotencia Gold</td>
+<td>Todas (<code>gold_dim_*</code>, <code>gold_fact_*</code>)</td>
+<td>Igual que Silver: <code>mode("overwrite")</code> + <code>overwriteSchema=true</code></td>
+<td>Implementada</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Validación NULLs en FKs tolerados</p>
+<p><code>test_gold_dw.ipynb</code> verifica integridad referencial en las 5 FKs de
+ambas fact tables. Solo se toleran NULLs en <code>geografia_sk</code>: en
+<code>fact_morbilidad</code> para municipios MSPAS sin match en el catálogo de
+departamentos, y en <code>fact_defunciones</code> para filas INE donde
+<code>departamento_oficial</code> ya venía NULL desde Silver (departamento sin
+match en el catálogo de variantes). El resto de FKs (<code>tiempo_sk</code>,
+<code>causa_sk</code>, <code>demografia_sk</code>, <code>fuente_sk</code>) deben tener cero NULLs.</p>
+</div>
+<h2 id="catalogos-de-referencia">Catálogos de referencia<a class="headerlink" href="#catalogos-de-referencia" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Catálogo</th>
+<th>Ubicación</th>
+<th>Contenido real</th>
+<th>Usado por stage actual</th>
+<th>Usado por Gold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ref_departamentos_gt.csv</code></td>
+<td><code>transformation-scripts/ref/</code></td>
+<td>22 departamentos oficiales + variantes de escritura, con <code>depto_id</code> numérico</td>
+<td>No — <code>stage_ine_geografia.ipynb</code>/<code>stage_mspas.ipynb</code> usan una lista Python hardcodeada equivalente (sin <code>depto_id</code>)</td>
+<td>No — <code>gold_dim_geografia.ipynb</code> deriva los departamentos directamente desde <code>departamento_oficial</code> ya resuelto en Silver</td>
+</tr>
+<tr>
+<td><code>ref_grupos_etarios.csv</code></td>
+<td><code>transformation-scripts/ref/</code></td>
+<td>Mapeo de etiquetas de grupo etario heterogéneas (<code>"&lt;1 año"</code>, <code>"1 a 4 años"</code>, <code>"10 a 14 años"</code>, ...) a rangos numéricos <code>(grupo_etario_anios_min, grupo_etario_anios_max)</code>, con columna <code>fuente_formato</code></td>
+<td>No — Silver no construye <code>dim_demografia</code></td>
+<td>No — <code>gold_dim_demografia.ipynb</code> usa una copia hardcodeada equivalente</td>
+</tr>
+<tr>
+<td><code>oms_indicator_mapping.csv</code></td>
+<td><code>transformation-scripts/ref/</code></td>
+<td>Código OMS → nombre en inglés/español + rango CIE-10 equivalente</td>
+<td>Parcialmente — <code>stage_who.ipynb</code> usa una copia inline (<code>_OMS_INDICATOR_ROWS</code>, solo código→español) en vez de leer este CSV completo</td>
+<td>No — <code>gold_dim_causa.ipynb</code> solo necesita <code>codigo_causa</code>/<code>nombre_causa</code>, ya resueltos en Silver</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trazabilidad-por-fuente">Trazabilidad por fuente<a class="headerlink" href="#trazabilidad-por-fuente" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Fuente</th>
+<th>Notebook Silver</th>
+<th>Tablas Bronze → Silver</th>
+<th>Responsable (Plan v3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INE — edad</td>
+<td><code>transformation-scripts/stage/stage_ine_edad.ipynb</code></td>
+<td><code>ine_defunciones_sexo_edad_causas_muerte</code>→<code>ine_defunciones_sexo_edad</code>, <code>ine_defunciones_neonatales_sexo_edad_causas_muerte</code>→<code>ine_defunciones_neonatales</code>, <code>ine_defunciones_postneonatales_sexo_edad_causas_muerte</code>→<code>ine_defunciones_postneonatales</code></td>
+<td>Sofía Quintana</td>
+</tr>
+<tr>
+<td>INE — geografía</td>
+<td><code>transformation-scripts/stage/stage_ine_geografia.ipynb</code></td>
+<td><code>ine_defunciones_sexo_depto_residencia_causas_muerte</code>→<code>ine_defunciones_depto_residencia</code>, <code>ine_defunciones_causas_externas_sexo_depto_ocurrencia</code>→<code>ine_defunciones_causas_externas</code></td>
+<td>Sofía Quintana</td>
+</tr>
+<tr>
+<td>MSPAS</td>
+<td><code>transformation-scripts/stage/stage_mspas.ipynb</code></td>
+<td><code>dbx_primeras_causas_de_morbilidad_2015_a_2025</code>, <code>dbx_morbilidad_enfermedades_cronicas_2015_a_2025</code>, <code>dbx_morbilidad_grupo_materno_infantil_2012_a_2025</code> (mismo nombre en Silver)</td>
+<td>Jeffrey Menéndez</td>
+</tr>
+<tr>
+<td>WHO</td>
+<td><code>transformation-scripts/stage/stage_who.ipynb</code></td>
+<td><code>who_guatemala</code>, <code>who_costa_rica</code> (mismo nombre en Silver)</td>
+<td>Roberto Bautista</td>
+</tr>
+</tbody>
+</table>
+<p>Pruebas de verificación Silver (lectura <code>limit()</code>, sin <code>count()</code> de tabla
+completa salvo donde se indica): <code>transformation-scripts/tests/test_silver_ine.ipynb</code>,
+<code>test_silver_mspas.ipynb</code>, <code>test_silver_who.ipynb</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Notebook Gold</th>
+<th>Lee de Silver</th>
+<th>Escribe en Gold</th>
+<th>Responsable (Plan v3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gold_dim_tiempo.ipynb</code></td>
+<td>(ninguna — generado sintéticamente)</td>
+<td><code>gold_ss2.dim_tiempo</code></td>
+<td>Sofía Quintana</td>
+</tr>
+<tr>
+<td><code>gold_dim_geografia.ipynb</code></td>
+<td><code>who_guatemala</code>, <code>who_costa_rica</code>, <code>ine_defunciones_depto_residencia</code>, <code>ine_defunciones_causas_externas</code>, 3 tablas <code>dbx_*</code></td>
+<td><code>gold_ss2.dim_geografia</code></td>
+<td>Sofía Quintana</td>
+</tr>
+<tr>
+<td><code>gold_dim_causa.ipynb</code></td>
+<td>5 tablas INE + 3 tablas <code>dbx_*</code> + 2 tablas WHO (las 10 tablas Silver)</td>
+<td><code>gold_ss2.dim_causa</code></td>
+<td>Sofía Quintana</td>
+</tr>
+<tr>
+<td><code>gold_dim_demografia.ipynb</code></td>
+<td>3 tablas INE-edad, 3 tablas <code>dbx_*</code>, 2 tablas WHO</td>
+<td><code>gold_ss2.dim_demografia</code></td>
+<td>Sofía Quintana</td>
+</tr>
+<tr>
+<td><code>gold_dim_fuente.ipynb</code></td>
+<td>Las 10 tablas Silver (solo <code>source_system</code>/<code>source_file</code>)</td>
+<td><code>gold_ss2.dim_fuente</code></td>
+<td>Sofía Quintana</td>
+</tr>
+<tr>
+<td><code>gold_fact_defunciones.ipynb</code></td>
+<td>5 tablas INE + 2 tablas WHO</td>
+<td><code>gold_ss2.fact_defunciones</code></td>
+<td>Jeffrey Menéndez</td>
+</tr>
+<tr>
+<td><code>gold_fact_morbilidad.ipynb</code></td>
+<td>3 tablas <code>dbx_*</code></td>
+<td><code>gold_ss2.fact_morbilidad</code></td>
+<td>Jeffrey Menéndez</td>
+</tr>
+</tbody>
+</table>
+<p>Pruebas de verificación Gold (4 niveles: existencia, sanity checks por
+dimensión, integridad de FKs, queries analíticas end-to-end):
+<code>transformation-scripts/tests/test_gold_dw.ipynb</code>.</p>
+<h2 id="issues-conocidos-que-motivan-estas-reglas">Issues conocidos que motivan estas reglas<a class="headerlink" href="#issues-conocidos-que-motivan-estas-reglas" title="Permanent link">&para;</a></h2>
+<h3 id="1-normalizacion-de-codigo-de-causa-entre-fuentes">1. Normalización de código de causa entre fuentes<a class="headerlink" href="#1-normalizacion-de-codigo-de-causa-entre-fuentes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fuente</th>
+<th>Formato en Silver</th>
+<th>Columna usada como <code>codigo_origen</code> en <code>dim_causa</code> (Gold, implementado)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INE — edad/geo residencia</td>
+<td><code>cie_10_norm</code> (ej. <code>J18</code>, o <code>A00-Y98</code>/<code>R99</code> para subtotales — ya filtrados, no llegan a Silver)</td>
+<td><code>cie_10_norm</code></td>
+</tr>
+<tr>
+<td>INE — causas externas</td>
+<td><code>cie_10_norm</code> = rango extraído del campo combinado (ej. <code>V01-V99</code>)</td>
+<td><code>cie_10_norm</code></td>
+</tr>
+<tr>
+<td>MSPAS</td>
+<td><code>cie_10_norm</code> (ej. <code>J:18:0</code>→<code>J180</code>)</td>
+<td><code>cie_10_norm</code></td>
+</tr>
+<tr>
+<td>WHO</td>
+<td><code>codigo_causa</code> (indicador OMS, ej. <code>CG0395</code>, no es CIE-10)</td>
+<td><code>codigo_causa</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>gold_dim_causa.ipynb</code> confirma esto en código: las 5 tablas INE y las 3
+<code>dbx_*</code> se unen usando <code>cie_10_norm</code>, y las 2 tablas WHO usan <code>codigo_causa</code>
+— ningún notebook Gold usa la columna combinada
+<code>causas_externas_codigo_cie_10</code> directamente, porque Silver ya la resolvió
+a <code>cie_10_norm</code>.</p>
+<h3 id="2-subtotales-ine-doble-conteo">2. Subtotales INE — doble conteo<a class="headerlink" href="#2-subtotales-ine-doble-conteo" title="Permanent link">&para;</a></h3>
+<p>Silver <strong>filtra</strong> los subtotales directamente — no existe columna
+<code>es_subtotal</code> en ninguna tabla Silver real. Gold recibirá solo filas
+granulares y no necesitará un filtro adicional por esta razón. El total
+nacional se obtendrá agregando el detalle, no leyendo una fila pre-calculada.</p>
+<h3 id="3-mspas-columnas-de-conteo-duplicadas">3. MSPAS — columnas de conteo duplicadas<a class="headerlink" href="#3-mspas-columnas-de-conteo-duplicadas" title="Permanent link">&para;</a></h3>
+<p><code>casos_total = COALESCE(casos, cantidad)</code> se aplica en las 3 tablas
+<code>dbx_*</code>. Para <code>enfermedades_cronicas_2015_a_2025</code> (que en Bronze solo trae
+<code>casos</code>), el notebook usa <code>ensure_column()</code> para añadir una columna
+<code>cantidad</code> con valor <code>NULL</code> antes del <code>COALESCE</code>, de forma que las 3 tablas
+comparten exactamente la misma lógica de transformación sin necesitar un
+<code>if</code> especial por tabla.</p>
+<h3 id="4-doble-conteo-ine-edad-vs-ine-geografia-riesgo-real-en-gold-confirmado">4. Doble conteo INE-edad vs. INE-geografía (riesgo real en Gold — confirmado)<a class="headerlink" href="#4-doble-conteo-ine-edad-vs-ine-geografia-riesgo-real-en-gold-confirmado" title="Permanent link">&para;</a></h3>
+<p>INE-edad (con <code>edad</code>, sin departamento) e INE-geo-residencia (con
+departamento, sin edad) son dos cortes distintos de <strong>las mismas
+defunciones</strong> a nivel nacional. Silver los mantiene como tablas separadas
+correctamente, y <strong>ambas alimentan <code>fact_defunciones</code> en
+<code>gold_fact_defunciones.ipynb</code></strong> (se unen con <code>reduce(...union...)</code> junto con
+INE-causas-externas y WHO). El riesgo es real, no solo teórico: cualquier
+<code>SUM(total_defunciones)</code> sobre <code>fact_defunciones</code> sin filtrar por
+<code>dim_fuente.pipeline_name</code> (<code>stage_ine_edad</code> vs. <code>stage_ine_geografia</code> vs.
+<code>stage_who</code>) duplica las muertes contadas. Las queries de demostración en
+<code>gold_fact_defunciones.ipynb</code> y <code>test_gold_dw.ipynb</code> (Q1, Q3, Q5) siempre
+filtran por <code>pipeline_name</code> antes de agregar — ese es el patrón a replicar
+en cualquier consulta nueva sobre esta fact table.</p>
+<h3 id="5-grupos-etarios-heterogeneos">5. Grupos etarios heterogéneos<a class="headerlink" href="#5-grupos-etarios-heterogeneos" title="Permanent link">&para;</a></h3>
+<p><code>ref_grupos_etarios.csv</code> existe como mapeo manual (valores finitos y
+conocidos por fuente), pero <strong>no se consume desde archivo</strong> en ningún
+notebook: ni Silver ni <code>gold_dim_demografia.ipynb</code> lo leen directamente.
+Este último usa una copia hardcodeada equivalente (<code>_REF_GRUPOS</code>) más un
+parser regex de respaldo para etiquetas no catalogadas.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

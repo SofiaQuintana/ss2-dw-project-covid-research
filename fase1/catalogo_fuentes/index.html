@@ -1,0 +1,2102 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del proyecto End-to-End de análisis de mortalidad Pre/Post-COVID en Guatemala y Centroamérica.">
+      
+      
+        <meta name="author" content="Grupo 10 - Seminario de Sistemas 2 - Vac Junio 2026">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../diccionario_datos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Catálogo de Fuentes - Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#catalogo-de-fuentes-de-datos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026" class="md-header__button md-logo" aria-label="Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Catálogo de Fuentes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="purple"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="purple"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SofiaQuintana/ss2-dw-project-covid-research" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ss2-dw-project-covid-research
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Fase 1 — Ingesta
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase2/" class="md-tabs__link">
+          
+  
+  
+  Fase 2 — Transformación
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fase3/" class="md-tabs__link">
+          
+  
+  
+  Fase 3 — ML y BI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026" class="md-nav__button md-logo" aria-label="Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Proyecto | Fase 1 — Seminario de Sistemas 2 - Vac Junio 2026
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SofiaQuintana/ss2-dw-project-covid-research" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ss2-dw-project-covid-research
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 1 — Ingesta
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 1 — Ingesta
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catálogo de Fuentes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Catálogo de Fuentes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inventario-y-procedencia-de-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventario y procedencia de datasets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inventario y procedencia de datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mspas-ministerio-de-salud-publica-y-asistencia-social" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MSPAS — Ministerio de Salud Pública y Asistencia Social
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ine-instituto-nacional-de-estadistica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INE — Instituto Nacional de Estadística
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oms-who-organizacion-mundial-de-la-salud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OMS / WHO — Organización Mundial de la Salud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renap-registro-nacional-de-las-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RENAP — Registro Nacional de las Personas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidencia-de-solicitud-de-informacion-publica-a-renap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencia de solicitud de información pública a RENAP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evidencia de solicitud de información pública a RENAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#correo-electronico-enviado-a-renap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correo electrónico enviado a RENAP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formulario-institucional-de-solicitud-pagina-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formulario institucional de solicitud — Página 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formulario-institucional-de-solicitud-pagina-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formulario institucional de solicitud — Página 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inventario-de-ingesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventario de ingesta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inventario de ingesta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws-s3-ine-estadisticas-vitales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. AWS S3 — INE (Estadísticas Vitales)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dropbox-mspas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dropbox — MSPAS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-google-drive-oms-costa-rica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Google Drive — OMS (Costa Rica)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-volumen-local-dbfs-oms-guatemala" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Volumen Local (DBFS) — OMS (Guatemala)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-de-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diccionario_datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diccionario de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines de Ingesta
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipelines de Ingesta
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline_schema_creation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creación de Esquema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline_oms_gdrive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OMS (Google Drive)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline_dropbox_mspas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MSPAS (Dropbox)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline_s3_ine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INE (S3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline_local_dbfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archivos Locales (DBFS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anonimizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan de Anonimización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lineage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linaje de Datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 2 — Transformación
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 2 — Transformación
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/reglas_transformacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reglas de Transformación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/source_to_target_mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source-to-Target Mapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase2/dw_local_evidencia_y_backup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DW Local (Backup y Evidencia)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fase 3 — ML y BI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fase 3 — ML y BI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/arquitectura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fase3/analisis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Análisis y Hallazgos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://drive.google.com/drive/u/3/folders/1DzDgBGiFRfbDw8EdrTQp932aCmgi2tBd" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentación Fase 3 (Drive)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inventario-y-procedencia-de-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventario y procedencia de datasets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inventario y procedencia de datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mspas-ministerio-de-salud-publica-y-asistencia-social" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MSPAS — Ministerio de Salud Pública y Asistencia Social
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ine-instituto-nacional-de-estadistica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        INE — Instituto Nacional de Estadística
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oms-who-organizacion-mundial-de-la-salud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OMS / WHO — Organización Mundial de la Salud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renap-registro-nacional-de-las-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RENAP — Registro Nacional de las Personas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidencia-de-solicitud-de-informacion-publica-a-renap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidencia de solicitud de información pública a RENAP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evidencia de solicitud de información pública a RENAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#correo-electronico-enviado-a-renap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correo electrónico enviado a RENAP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formulario-institucional-de-solicitud-pagina-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formulario institucional de solicitud — Página 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formulario-institucional-de-solicitud-pagina-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formulario institucional de solicitud — Página 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inventario-de-ingesta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventario de ingesta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inventario de ingesta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws-s3-ine-estadisticas-vitales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. AWS S3 — INE (Estadísticas Vitales)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dropbox-mspas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dropbox — MSPAS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-google-drive-oms-costa-rica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Google Drive — OMS (Costa Rica)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-volumen-local-dbfs-oms-guatemala" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Volumen Local (DBFS) — OMS (Guatemala)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-de-fuentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen de fuentes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="catalogo-de-fuentes-de-datos">Catálogo de Fuentes de Datos<a class="headerlink" href="#catalogo-de-fuentes-de-datos" title="Permanent link">&para;</a></h1>
+<p>Este catálogo documenta todas las fuentes de datos utilizadas en el proyecto, su procedencia, mecanismo de acceso y estado de disponibilidad. Cada fuente fue evaluada en términos de cobertura temporal, geográfica y calidad de los datos.</p>
+<hr />
+<h2 id="inventario-y-procedencia-de-datasets">Inventario y procedencia de datasets<a class="headerlink" href="#inventario-y-procedencia-de-datasets" title="Permanent link">&para;</a></h2>
+<h3 id="mspas-ministerio-de-salud-publica-y-asistencia-social">MSPAS — Ministerio de Salud Pública y Asistencia Social<a class="headerlink" href="#mspas-ministerio-de-salud-publica-y-asistencia-social" title="Permanent link">&para;</a></h3>
+<p>Los datos del MSPAS provienen del portal de datos abiertos del gobierno de Guatemala. Se obtienen tres conjuntos de datos relacionados con mortalidad y causas de defunción:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Dataset</th>
+<th>URL de origen</th>
+<th>Formato</th>
+<th>Cobertura temporal</th>
+<th>Cobertura geográfica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F01</td>
+<td>Casos y defunciones por COVID-19</td>
+<td><a href="https://datos.mspas.gob.gt">datos.mspas.gob.gt</a></td>
+<td>CSV</td>
+<td>2020–2023</td>
+<td>Guatemala</td>
+</tr>
+<tr>
+<td>F02</td>
+<td>Defunciones por causa de muerte (CIE-10)</td>
+<td><a href="https://datos.mspas.gob.gt">datos.mspas.gob.gt</a></td>
+<td>CSV</td>
+<td>2015–2023</td>
+<td>Guatemala</td>
+</tr>
+<tr>
+<td>F03</td>
+<td>Estadísticas de mortalidad — SIGSA</td>
+<td><a href="https://datos.mspas.gob.gt">datos.mspas.gob.gt</a></td>
+<td>CSV</td>
+<td>2015–2023</td>
+<td>Guatemala</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mecanismo de acceso:</strong> Los archivos CSV son descargados desde Dropbox (repositorio compartido por el equipo) mediante autenticación OAuth 2.0. El proceso de ingesta automatizada se documenta en <a href="../pipeline_dropbox_mspas/">pipeline_dropbox_mspas.md</a>.</p>
+<hr />
+<h3 id="ine-instituto-nacional-de-estadistica">INE — Instituto Nacional de Estadística<a class="headerlink" href="#ine-instituto-nacional-de-estadistica" title="Permanent link">&para;</a></h3>
+<p>Los datos del INE corresponden a las Estadísticas Vitales de Defunciones, fuente obligatoria según el enunciado del proyecto.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Dataset</th>
+<th>URL de origen</th>
+<th>Formato</th>
+<th>Cobertura temporal</th>
+<th>Cobertura geográfica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F04</td>
+<td>Estadísticas Vitales — Defunciones (reportes anuales)</td>
+<td><a href="https://datos.ine.gob.gt/dataset/estadisticas-vitales-defunciones">datos.ine.gob.gt/dataset/estadisticas-vitales-defunciones</a></td>
+<td>XLSX</td>
+<td>2013–2022</td>
+<td>Guatemala</td>
+</tr>
+<tr>
+<td>F05</td>
+<td>Estadísticas Vitales — Defunciones (microdatos)</td>
+<td><a href="https://datos.ine.gob.gt/dataset/estadisticas-vitales-defunciones">datos.ine.gob.gt/dataset/estadisticas-vitales-defunciones</a></td>
+<td>CSV</td>
+<td>2013–2022</td>
+<td>Guatemala</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mecanismo de acceso:</strong> Los archivos XLSX/CSV están almacenados en un bucket de AWS S3. La ingesta se realiza mediante la librería <code>boto3</code> con autenticación por IAM Role configurado en Databricks. El proceso se documenta en <a href="../pipeline_s3_ine/">pipeline_s3_ine.md</a>.</p>
+<blockquote>
+<p><strong>Fuente obligatoria del enunciado:</strong> El proyecto exige usar como fuente base los datos de <a href="https://datos.ine.gob.gt/dataset/estadisticas-vitales-defunciones">estadísticas vitales de defunciones del INE</a>.</p>
+</blockquote>
+<hr />
+<h3 id="oms-who-organizacion-mundial-de-la-salud">OMS / WHO — Organización Mundial de la Salud<a class="headerlink" href="#oms-who-organizacion-mundial-de-la-salud" title="Permanent link">&para;</a></h3>
+<p>Los datos de la OMS provienen del portal WHO Mortality Database, con datos de mortalidad desagregados por causa (CIE-10), sexo, edad y año para Guatemala y Costa Rica.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Dataset</th>
+<th>URL de origen</th>
+<th>Formato</th>
+<th>Cobertura temporal</th>
+<th>Cobertura geográfica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F06</td>
+<td>WHO Mortality Database — Guatemala</td>
+<td><a href="https://platform.who.int/mortality/countries/country-details/MDB/guatemala">platform.who.int/mortality/countries/country-details/MDB/guatemala</a></td>
+<td>CSV</td>
+<td>2015–2022</td>
+<td>Guatemala</td>
+</tr>
+<tr>
+<td>F07</td>
+<td>WHO Mortality Database — Costa Rica</td>
+<td><a href="https://platform.who.int/mortality/countries/country-details/MDB/costa-rica">platform.who.int/mortality/countries/country-details/MDB/costa-rica</a></td>
+<td>CSV</td>
+<td>2015–2022</td>
+<td>Costa Rica</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mecanismo de acceso:</strong></p>
+<ul>
+<li><strong>Guatemala (F06):</strong> Archivo CSV almacenado en un volumen local de Databricks (DBFS/Volume). La lectura se realiza directamente desde la ruta del volumen. Proceso documentado en <a href="../pipeline_local_dbfs/">pipeline_local_dbfs.md</a>.</li>
+<li><strong>Costa Rica (F07):</strong> Archivo CSV almacenado en Google Drive del equipo. La ingesta se realiza mediante la API de Google Drive con autenticación por Service Account. Proceso documentado en <a href="../pipeline_oms_gdrive/">pipeline_oms_gdrive.md</a>.</li>
+</ul>
+<hr />
+<h3 id="renap-registro-nacional-de-las-personas">RENAP — Registro Nacional de las Personas<a class="headerlink" href="#renap-registro-nacional-de-las-personas" title="Permanent link">&para;</a></h3>
+<p>RENAP es custodio de los registros civiles de nacimientos, matrimonios y defunciones en Guatemala. Para el proyecto, se requieren los registros de defunciones como fuente complementaria de validación.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Dataset</th>
+<th>Estado</th>
+<th>Observación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F08</td>
+<td>Registros de defunción — RENAP</td>
+<td>Pendiente — oficio enviado</td>
+<td>Fuente sujeta a solicitud de información pública según Art. 10 de la Ley de Acceso a la Información Pública (Decreto 57-2008)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Estado actual:</strong> Se enviaron formalmente las solicitudes de información pública a RENAP. La evidencia se documenta en la sección siguiente.</p>
+<hr />
+<h2 id="evidencia-de-solicitud-de-informacion-publica-a-renap">Evidencia de solicitud de información pública a RENAP<a class="headerlink" href="#evidencia-de-solicitud-de-informacion-publica-a-renap" title="Permanent link">&para;</a></h2>
+<p>En cumplimiento con la <strong>Ley de Acceso a la Información Pública (Decreto 57-2008)</strong>, se realizó una solicitud formal de información a RENAP solicitando acceso a los registros de defunciones para fines académicos e investigativos.</p>
+<h3 id="correo-electronico-enviado-a-renap">Correo electrónico enviado a RENAP<a class="headerlink" href="#correo-electronico-enviado-a-renap" title="Permanent link">&para;</a></h3>
+<p>Se envió un correo electrónico a la Unidad de Información Pública de RENAP con la petición formal de acceso a los datos de defunciones.</p>
+<p><img alt="Correo electrónico enviado a RENAP" src="../../assets/renap/renap_email.png" /></p>
+<hr />
+<h3 id="formulario-institucional-de-solicitud-pagina-1">Formulario institucional de solicitud — Página 1<a class="headerlink" href="#formulario-institucional-de-solicitud-pagina-1" title="Permanent link">&para;</a></h3>
+<p>Se llenó el formulario oficial de solicitud de información pública de RENAP conforme al procedimiento establecido.</p>
+<p><img alt="Formulario RENAP página 1" src="../../assets/renap/renap_form_p1.png" /></p>
+<hr />
+<h3 id="formulario-institucional-de-solicitud-pagina-2">Formulario institucional de solicitud — Página 2<a class="headerlink" href="#formulario-institucional-de-solicitud-pagina-2" title="Permanent link">&para;</a></h3>
+<p>Continuación y firma del formulario oficial de solicitud de información pública.</p>
+<p><img alt="Formulario RENAP página 2" src="../../assets/renap/renap_form_p2.png" /></p>
+<hr />
+<h2 id="inventario-de-ingesta">Inventario de ingesta<a class="headerlink" href="#inventario-de-ingesta" title="Permanent link">&para;</a></h2>
+<p>A continuación se describen los cuatro mecanismos de ingesta implementados para incorporar datos a la capa Bronze/Sandbox del Data Warehouse en Databricks.</p>
+<hr />
+<h3 id="1-aws-s3-ine-estadisticas-vitales">1. AWS S3 — INE (Estadísticas Vitales)<a class="headerlink" href="#1-aws-s3-ine-estadisticas-vitales" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fuente</strong></td>
+<td>INE — Estadísticas Vitales de Defunciones</td>
+</tr>
+<tr>
+<td><strong>IDs de dataset</strong></td>
+<td>F04, F05</td>
+</tr>
+<tr>
+<td><strong>Tecnología</strong></td>
+<td><code>boto3</code> (AWS SDK para Python)</td>
+</tr>
+<tr>
+<td><strong>Autenticación</strong></td>
+<td>IAM Role configurado en el cluster de Databricks</td>
+</tr>
+<tr>
+<td><strong>Formato de entrada</strong></td>
+<td>XLSX / CSV</td>
+</tr>
+<tr>
+<td><strong>Destino</strong></td>
+<td>Capa Bronze — tabla <code>bronze.ine_defunciones</code></td>
+</tr>
+<tr>
+<td><strong>Documentación</strong></td>
+<td><a href="../pipeline_s3_ine/">pipeline_s3_ine.md</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Descripción:</strong> Los archivos de estadísticas vitales publicados por el INE se almacenan en un bucket S3. El notebook de Databricks utiliza <code>boto3</code> con las credenciales del IAM Role del cluster para listar y descargar los archivos, que luego son procesados y escritos en Delta Lake en la capa Bronze.</p>
+<hr />
+<h3 id="2-dropbox-mspas">2. Dropbox — MSPAS<a class="headerlink" href="#2-dropbox-mspas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fuente</strong></td>
+<td>MSPAS — Datos abiertos de mortalidad</td>
+</tr>
+<tr>
+<td><strong>IDs de dataset</strong></td>
+<td>F01, F02, F03</td>
+</tr>
+<tr>
+<td><strong>Tecnología</strong></td>
+<td>Dropbox REST API v2</td>
+</tr>
+<tr>
+<td><strong>Autenticación</strong></td>
+<td>OAuth 2.0 — Access Token almacenado en Databricks Secrets</td>
+</tr>
+<tr>
+<td><strong>Formato de entrada</strong></td>
+<td>CSV</td>
+</tr>
+<tr>
+<td><strong>Destino</strong></td>
+<td>Capa Bronze — tablas <code>bronze.mspas_*</code></td>
+</tr>
+<tr>
+<td><strong>Documentación</strong></td>
+<td><a href="../pipeline_dropbox_mspas/">pipeline_dropbox_mspas.md</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Descripción:</strong> Los archivos CSV del MSPAS están almacenados en una carpeta compartida de Dropbox. El notebook de Databricks autentica con OAuth 2.0 usando un token de acceso seguro (almacenado en Databricks Secret Scope) y descarga los archivos mediante la API REST de Dropbox (<code>/files/download</code>). Los archivos se escriben en Delta Lake en la capa Bronze.</p>
+<hr />
+<h3 id="3-google-drive-oms-costa-rica">3. Google Drive — OMS (Costa Rica)<a class="headerlink" href="#3-google-drive-oms-costa-rica" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fuente</strong></td>
+<td>WHO Mortality Database — Costa Rica</td>
+</tr>
+<tr>
+<td><strong>IDs de dataset</strong></td>
+<td>F07</td>
+</tr>
+<tr>
+<td><strong>Tecnología</strong></td>
+<td>Google Drive API v3 (<code>google-api-python-client</code>)</td>
+</tr>
+<tr>
+<td><strong>Autenticación</strong></td>
+<td>Google Service Account (archivo JSON de credenciales)</td>
+</tr>
+<tr>
+<td><strong>Formato de entrada</strong></td>
+<td>CSV</td>
+</tr>
+<tr>
+<td><strong>Destino</strong></td>
+<td>Capa Bronze — tabla <code>bronze.oms_costa_rica</code></td>
+</tr>
+<tr>
+<td><strong>Documentación</strong></td>
+<td><a href="../pipeline_oms_gdrive/">pipeline_oms_gdrive.md</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Descripción:</strong> El archivo CSV de mortalidad de Costa Rica (OMS) está almacenado en Google Drive. La ingesta utiliza <code>google-api-python-client</code> autenticado con un Service Account cuyas credenciales JSON están almacenadas de forma segura en Databricks. El archivo se descarga via <code>files().get_media()</code> y se escribe en la capa Bronze.</p>
+<hr />
+<h3 id="4-volumen-local-dbfs-oms-guatemala">4. Volumen Local (DBFS) — OMS (Guatemala)<a class="headerlink" href="#4-volumen-local-dbfs-oms-guatemala" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fuente</strong></td>
+<td>WHO Mortality Database — Guatemala</td>
+</tr>
+<tr>
+<td><strong>IDs de dataset</strong></td>
+<td>F06</td>
+</tr>
+<tr>
+<td><strong>Tecnología</strong></td>
+<td>Spark / DBFS Volume read directo</td>
+</tr>
+<tr>
+<td><strong>Autenticación</strong></td>
+<td>No requerida (acceso nativo al volumen del cluster)</td>
+</tr>
+<tr>
+<td><strong>Formato de entrada</strong></td>
+<td>CSV</td>
+</tr>
+<tr>
+<td><strong>Destino</strong></td>
+<td>Capa Bronze — tabla <code>bronze.oms_guatemala</code></td>
+</tr>
+<tr>
+<td><strong>Documentación</strong></td>
+<td><a href="../pipeline_local_dbfs/">pipeline_local_dbfs.md</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Descripción:</strong> El archivo CSV de mortalidad de Guatemala (OMS) fue cargado manualmente al volumen de Databricks (DBFS/Volumes). La ingesta consiste en una lectura directa del archivo desde la ruta del volumen usando Spark, sin necesidad de autenticación adicional. Es el mecanismo más simple y se usa para datos que no tienen una fuente de descarga automatizable.</p>
+<hr />
+<h2 id="resumen-de-fuentes">Resumen de fuentes<a class="headerlink" href="#resumen-de-fuentes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Fuente</th>
+<th>Institución</th>
+<th>Formato</th>
+<th>Mecanismo de ingesta</th>
+<th>Cobertura temporal</th>
+<th>Cobertura geográfica</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F01</td>
+<td>COVID-19 casos y defunciones</td>
+<td>MSPAS</td>
+<td>CSV</td>
+<td>Dropbox OAuth 2.0 → Databricks</td>
+<td>2020–2023</td>
+<td>Guatemala</td>
+<td>Activa</td>
+</tr>
+<tr>
+<td>F02</td>
+<td>Defunciones por CIE-10</td>
+<td>MSPAS</td>
+<td>CSV</td>
+<td>Dropbox OAuth 2.0 → Databricks</td>
+<td>2015–2023</td>
+<td>Guatemala</td>
+<td>Activa</td>
+</tr>
+<tr>
+<td>F03</td>
+<td>Mortalidad SIGSA</td>
+<td>MSPAS</td>
+<td>CSV</td>
+<td>Dropbox OAuth 2.0 → Databricks</td>
+<td>2015–2023</td>
+<td>Guatemala</td>
+<td>Activa</td>
+</tr>
+<tr>
+<td>F04</td>
+<td>Estadísticas Vitales — reportes</td>
+<td>INE</td>
+<td>XLSX</td>
+<td>AWS S3 + boto3 → Databricks</td>
+<td>2013–2022</td>
+<td>Guatemala</td>
+<td>Activa</td>
+</tr>
+<tr>
+<td>F05</td>
+<td>Estadísticas Vitales — microdatos</td>
+<td>INE</td>
+<td>CSV</td>
+<td>AWS S3 + boto3 → Databricks</td>
+<td>2013–2022</td>
+<td>Guatemala</td>
+<td>Activa</td>
+</tr>
+<tr>
+<td>F06</td>
+<td>WHO Mortality Database</td>
+<td>OMS</td>
+<td>CSV</td>
+<td>DBFS Volume → Databricks</td>
+<td>2015–2022</td>
+<td>Guatemala</td>
+<td>Activa</td>
+</tr>
+<tr>
+<td>F07</td>
+<td>WHO Mortality Database</td>
+<td>OMS</td>
+<td>CSV</td>
+<td>Google Drive API → Databricks</td>
+<td>2015–2022</td>
+<td>Costa Rica</td>
+<td>Activa</td>
+</tr>
+<tr>
+<td>F08</td>
+<td>Registros de defunción</td>
+<td>RENAP</td>
+<td>TBD</td>
+<td>TBD</td>
+<td>TBD</td>
+<td>Guatemala</td>
+<td>Pendiente</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
